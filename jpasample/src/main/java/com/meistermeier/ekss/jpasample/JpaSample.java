@@ -1,13 +1,10 @@
 package com.meistermeier.ekss.jpasample;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Properties;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.hql.internal.ast.util.SessionFactoryHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +19,8 @@ public class JpaSample {
 	public static void main(String[] args) {
 		JpaSample jpaSample = new JpaSample();
 
-		jpaSample.sample1();
+		jpaSample.simpleSaveAndLoad();
+		jpaSample.saveAndLoadInDifferentSessions();
 
 		jpaSample.sessionFactory.close();
 	}
@@ -31,10 +29,27 @@ public class JpaSample {
 		this.sessionFactory = createSessionFactory();
 	}
 
-	private void sample1() {
+	private void simpleSaveAndLoad() {
 		Session session = sessionFactory.openSession();
 
 		session.save(new User("Max", "Mustermann", 22));
+
+		User loadedUser = session.load(User.class, 1L);
+
+		LOG.info("user found: {} ", loadedUser);
+
+		session.close();
+	}
+
+
+	private void saveAndLoadInDifferentSessions() {
+		Session session = sessionFactory.openSession();
+
+		session.save(new User("Max", "Mustermann", 22));
+
+		session.close();
+
+		session = sessionFactory.openSession();
 
 		User loadedUser = session.load(User.class, 1L);
 
@@ -47,7 +62,6 @@ public class JpaSample {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.connection.url", "jdbc:h2:mem:myDb");
 		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-		properties.setProperty("hibernate.show_sql", "true");
 
 		Configuration configuration = new Configuration()
 				.addAnnotatedClass(User.class)
