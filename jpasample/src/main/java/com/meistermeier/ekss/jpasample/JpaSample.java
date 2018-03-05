@@ -16,12 +16,15 @@ public class JpaSample {
 
 	private final SessionFactory sessionFactory;
 	private Long userId;
+	private User user;
 
 	public static void main(String[] args) {
 		JpaSample jpaSample = new JpaSample();
 
 		jpaSample.simpleSaveAndLoad();
 		jpaSample.loadInDifferentSession();
+		jpaSample.updateAndLoadEntityInSession();
+		jpaSample.updateAndLoadEntityInNewSession();
 
 		jpaSample.sessionFactory.close();
 	}
@@ -33,10 +36,7 @@ public class JpaSample {
 	private void simpleSaveAndLoad() {
 		Session session = sessionFactory.openSession();
 
-		User user = new User("Max", "Mustermann", 22);
-		session.save(user);
-
-		userId = user.getId();
+		createUser(session);
 
 		User loadedUser = session.load(User.class, userId);
 
@@ -44,7 +44,6 @@ public class JpaSample {
 
 		session.close();
 	}
-
 
 	private void loadInDifferentSession() {
 		Session session = sessionFactory.openSession();
@@ -54,6 +53,39 @@ public class JpaSample {
 		LOG.info("user found: {} ", loadedUser);
 
 		session.close();
+	}
+
+	private void updateAndLoadEntityInSession() {
+		Session session = sessionFactory.openSession();
+
+		user.setFirstName("Hans");
+
+		session.update(user);
+
+		User loadedUser = session.load(User.class, userId);
+		LOG.info("user found: {} ", loadedUser);
+		session.close();
+	}
+
+	private void updateAndLoadEntityInNewSession() {
+		Session session = sessionFactory.openSession();
+
+		user.setFirstName("Hans");
+
+		session.update(user);
+		session.close();
+		session = sessionFactory.openSession();
+
+		User loadedUser = session.load(User.class, userId);
+		LOG.info("user found: {} ", loadedUser);
+		session.close();
+	}
+
+	private void createUser(Session session) {
+		user = new User("Max", "Mustermann", 22);
+		session.save(user);
+
+		userId = user.getId();
 	}
 
 	private SessionFactory createSessionFactory() {
