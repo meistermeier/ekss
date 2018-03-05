@@ -39,6 +39,10 @@ public class User {
 		return age;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	@Override public String toString() {
 		return firstName + " " + lastName + " (" + age + ")";
 	}

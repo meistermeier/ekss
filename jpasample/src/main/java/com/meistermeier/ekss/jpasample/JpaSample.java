@@ -15,12 +15,13 @@ public class JpaSample {
 	private static final Logger LOG = LoggerFactory.getLogger(JpaSample.class);
 
 	private final SessionFactory sessionFactory;
+	private Long userId;
 
 	public static void main(String[] args) {
 		JpaSample jpaSample = new JpaSample();
 
 		jpaSample.simpleSaveAndLoad();
-		jpaSample.saveAndLoadInDifferentSessions();
+		jpaSample.loadInDifferentSession();
 
 		jpaSample.sessionFactory.close();
 	}
@@ -32,9 +33,12 @@ public class JpaSample {
 	private void simpleSaveAndLoad() {
 		Session session = sessionFactory.openSession();
 
-		session.save(new User("Max", "Mustermann", 22));
+		User user = new User("Max", "Mustermann", 22);
+		session.save(user);
 
-		User loadedUser = session.load(User.class, 1L);
+		userId = user.getId();
+
+		User loadedUser = session.load(User.class, userId);
 
 		LOG.info("user found: {} ", loadedUser);
 
@@ -42,16 +46,10 @@ public class JpaSample {
 	}
 
 
-	private void saveAndLoadInDifferentSessions() {
+	private void loadInDifferentSession() {
 		Session session = sessionFactory.openSession();
 
-		session.save(new User("Max", "Mustermann", 22));
-
-		session.close();
-
-		session = sessionFactory.openSession();
-
-		User loadedUser = session.load(User.class, 1L);
+		User loadedUser = session.load(User.class, userId);
 
 		LOG.info("user found: {} ", loadedUser);
 
@@ -62,6 +60,7 @@ public class JpaSample {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.connection.url", "jdbc:h2:mem:myDb");
 		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+		properties.setProperty("hibernate.show_sql", "true");
 
 		Configuration configuration = new Configuration()
 				.addAnnotatedClass(User.class)
