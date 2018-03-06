@@ -22,6 +22,7 @@
 
 	<logger name="com.meistermeier.ekss" level="debug"/>
 	<logger name="org.hibernate.SQL" level="debug"/>
+	<logger name="org.hibernate" level="debug"/>
 	<!--<logger name="org.hibernate.type" level="trace"/>-->
 
 	<root level="warn">
