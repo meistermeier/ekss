@@ -1,8 +1,6 @@
-package com.meistermeier.ekss.jee;
+package com.meistermeier.ekss.jee.user;
 
 import java.util.List;
-
-import com.meistermeier.ekss.jee.user.User;
 
 public interface UserService {
 

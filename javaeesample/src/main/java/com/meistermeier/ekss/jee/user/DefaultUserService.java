@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import com.meistermeier.ekss.jee.UserService;
-
 @ApplicationScoped
 public class DefaultUserService implements UserService {
 
