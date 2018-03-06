@@ -12,7 +12,7 @@
 
 == Persistence
 
-* JPA
+* JPA https://github.com/meistermeier/ekss/jpasample/
 * Spring Data JPA
 * Spring Data Neo4j
 
