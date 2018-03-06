@@ -4,33 +4,35 @@ import java.util.Properties;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.meistermeier.ekss.jpasample.user.User;
 
-public class JpaSample {
+public class JpaCrudSample {
 
-	private static final Logger LOG = LoggerFactory.getLogger(JpaSample.class);
+	private static final Logger LOG = LoggerFactory.getLogger(JpaCrudSample.class);
 
 	private final SessionFactory sessionFactory;
 	private Long userId;
 	private User user;
 
-	public static void main(String[] args) {
-		JpaSample jpaSample = new JpaSample();
-
-		jpaSample.simpleSaveAndLoad();
-		jpaSample.loadInDifferentSession();
-		jpaSample.updateAndLoadEntityInSession();
-		jpaSample.updateAndLoadEntityInNewSession();
-
-		jpaSample.sessionFactory.close();
+	private JpaCrudSample() {
+		this.sessionFactory = createSessionFactory();
 	}
 
-	private JpaSample() {
-		this.sessionFactory = createSessionFactory();
+	public static void main(String[] args) {
+		JpaCrudSample jpaCrudSample = new JpaCrudSample();
+
+		jpaCrudSample.simpleSaveAndLoad();
+		jpaCrudSample.loadInDifferentSession();
+		jpaCrudSample.updateAndLoadEntityInSession();
+		jpaCrudSample.updateAndLoadEntityInNewSession();
+		jpaCrudSample.deleteEntity();
+
+		jpaCrudSample.sessionFactory.close();
 	}
 
 	private void simpleSaveAndLoad() {
@@ -77,6 +79,20 @@ public class JpaSample {
 		session = sessionFactory.openSession();
 
 		User loadedUser = session.load(User.class, userId);
+		LOG.info("user found: {} ", loadedUser);
+		session.close();
+	}
+
+	private void deleteEntity() {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.delete(user);
+		session.flush();
+		transaction.commit();
+		session.close();
+
+		session = sessionFactory.openSession();
+		User loadedUser = session.get(User.class, userId);
 		LOG.info("user found: {} ", loadedUser);
 		session.close();
 	}
