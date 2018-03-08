@@ -1,21 +1,18 @@
 = Entwicklung komplexer Softwaresysteme Codebeispiele
 
-== Java Ökosystem
-
-* Java EE
-* Spring Boot
+* https://github.com/meistermeier/ekss/javaeesample/[kleine Java EE Beispielanwendung]
+* https://github.com/meistermeier/ekss/springsample/[kleine Spring (Boot) Anwendung]
 
 == Dependency Injection
 
-* manuelle Dependency Injection
-* Dependency Injection mit Spring
+https://github.com/meistermeier/ekss/springsample/[Dependency Injection mit Spring (im Spring Boot Beispiel)]
 
 == Persistence
 
-* JPA https://github.com/meistermeier/ekss/jpasample/
+* https://github.com/meistermeier/ekss/jpasample/[JPA]
 * Spring Data JPA
 * Spring Data Neo4j
 
-== Web Services
+//== Web Services
 
-== Web Applications
+//== Web Applications
