@@ -8,10 +8,8 @@
 		</encoder>
 	</appender>
 
+	<logger name="org.springframework.core" level="info"/>
 	<logger name="com.meistermeier.ekss" level="debug"/>
-	<logger name="org.hibernate.SQL" level="debug"/>
-	<logger name="org.hibernate" level="debug"/>
-	<!--<logger name="org.hibernate.type" level="trace"/>-->
 
 	<root level="warn">
 		<appender-ref ref="console"/>
