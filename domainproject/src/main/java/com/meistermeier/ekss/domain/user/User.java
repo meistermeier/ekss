@@ -1,4 +1,4 @@
-package com.meistermeier.ekss.jpasample.user;
+package com.meistermeier.ekss.domain.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
