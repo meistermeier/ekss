@@ -1,0 +1,7 @@
+=== Starten
+
+`mvn clean package && java -jar target/javaee-sample-1.0-SNAPSHOT-swarm.jar`
+
+==== Voraussetzung
+
+Installation von https://maven.apache.org[Apache Maven].

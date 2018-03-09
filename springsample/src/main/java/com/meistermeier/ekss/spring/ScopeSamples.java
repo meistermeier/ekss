@@ -22,5 +22,8 @@ public class ScopeSamples {
 		context.getBean("prototypeBean");
 		context.getBean("prototypeBean");
 		context.getBean("prototypeBean");
+
+		ProfileSampleBean bean = context.getBean(ProfileSampleBean.class);
+		LOG.info(bean.doWork());
 	}
 }

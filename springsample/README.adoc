@@ -1,0 +1,6 @@
+=== Starten
+
+`./mvnw spring-boot:run` (Mac/Linux)
+
+`mvn.cmd spring-boot:run` (Windows)
+

@@ -1,0 +1,3 @@
+=== Starten
+
+`mvn test`

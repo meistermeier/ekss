@@ -2,6 +2,8 @@ package com.meistermeier.ekss.spring;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +33,7 @@ public class Application {
 	}
 
 	@Bean
-	@Profile("production")
+	@Profile("default")
 	public ProfileSampleBean productionProfileSampleBean() {
 		return () -> "Doing production ready work";
 	}

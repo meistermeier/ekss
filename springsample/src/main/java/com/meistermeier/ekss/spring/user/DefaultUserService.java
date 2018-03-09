@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.meistermeier.ekss.domain.user.User;
-
 @Service
 public class DefaultUserService implements UserService {
 
