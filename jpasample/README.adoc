@@ -1,3 +1,7 @@
 === Starten
 
 `mvn test`
+
+==== Voraussetzung
+
+Installation von https://maven.apache.org[Apache Maven].
