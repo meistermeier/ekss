@@ -1,0 +1,6 @@
+=== Ausführen
+
+`./mvnw clean package && java -jar target/neo4jsample-1.0-SNAPSHOT.jar` -
+Erstellt eine ausführbare _jar_ Datei, die dann ausgeführt wird.
+Der Einstiegspunkt ist die Klasse `Neo4jSample`.
+
