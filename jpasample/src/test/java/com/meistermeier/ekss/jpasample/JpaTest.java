@@ -21,10 +21,12 @@ public class JpaTest {
 	@Before
 	public void setup() {
 		this.sessionFactory = createSessionFactory();
+
 		user = new User("Max", "Mustermann", 22);
 		Session session = sessionFactory.openSession();
-
+		Transaction transaction = session.beginTransaction();
 		session.save(user);
+		transaction.commit();
 		session.close();
 		userId = user.getId();
 

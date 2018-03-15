@@ -1,7 +1,4 @@
-=== Starten
+=== Ausführen
 
-`mvn test`
+`./mvnw test` - Führt `JpaTest` und `SqlSampleTest` aus.
 
-==== Voraussetzung
-
-Installation von https://maven.apache.org[Apache Maven].

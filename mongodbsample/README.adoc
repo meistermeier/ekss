@@ -1,0 +1,4 @@
+=== Ausführen
+
+`./mvnw test` - Startet den Test in der Klasse `MongoDbTest`.
+
