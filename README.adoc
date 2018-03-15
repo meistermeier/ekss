@@ -11,7 +11,7 @@ Begleitende Codebeispiele für die Vorlesung _Entwicklung komplexer Softwaresyst
 
 * https://github.com/meistermeier/ekss/blob/master/jpasample/src/test/java/com/meistermeier/ekss/jpasample/SqlSampleTest.java[SQL Beispiel im JPA Projekt]
 * https://github.com/meistermeier/ekss/tree/master/mongodbsample[mongoDB Beispiel]
-* https://github.com/meistermeier/ekss/tree/master/neo4jsample[mongoDB Beispiel]
+* https://github.com/meistermeier/ekss/tree/master/neo4jsample[Neo4j Beispiel]
 
 == Persistence
 
