@@ -1,17 +1,23 @@
-= Entwicklung komplexer Softwaresysteme Codebeispiele
+= Entwicklung komplexer Softwaresysteme
 
-* https://github.com/meistermeier/ekss/javaeesample/[kleine Java EE Beispielanwendung]
-* https://github.com/meistermeier/ekss/springsample/[kleine Spring (Boot) Anwendung]
+Begleitende Codebeispiele für die Vorlesung _Entwicklung komplexer Softwaresysteme_ an der Ostfalia SS 2018.
 
 == Dependency Injection
 
-https://github.com/meistermeier/ekss/springsample/[Dependency Injection mit Spring (im Spring Boot Beispiel)]
+* https://github.com/meistermeier/ekss/tree/master/springsample/[Dependency Injection mit Spring (im Spring Boot Beispiel)]
+* https://github.com/meistermeier/ekss/tree/master/javaeesample/[kleine Java EE Beispielanwendung mit CDI]
+
+== Data Stores
+
+* https://github.com/meistermeier/ekss/blob/master/jpasample/src/test/java/com/meistermeier/ekss/jpasample/SqlSampleTest.java[SQL Beispiel im JPA Projekt]
+* https://github.com/meistermeier/ekss/tree/master/mongodbsample[mongoDB Beispiel]
+* https://github.com/meistermeier/ekss/tree/master/neo4jsample[mongoDB Beispiel]
 
 == Persistence
 
-* https://github.com/meistermeier/ekss/jpasample/[JPA]
-* Spring Data JPA
-* Spring Data Neo4j
+* https://github.com/meistermeier/ekss/tree/master/jpasample/[JPA]
+//* Spring Data JPA
+//* Spring Data Neo4j
 
 //== Web Services
 
