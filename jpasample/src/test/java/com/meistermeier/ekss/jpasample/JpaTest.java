@@ -1,11 +1,10 @@
 package com.meistermeier.ekss.jpasample;
 
-import java.util.Properties;
+import static com.meistermeier.ekss.jpasample.TestHelper.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -101,16 +100,4 @@ public class JpaTest {
 		session.close();
 	}
 
-	private SessionFactory createSessionFactory() {
-		Properties properties = new Properties();
-		properties.setProperty("hibernate.connection.url", "jdbc:h2:mem:myDb");
-		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-		properties.setProperty("hibernate.show_sql", "true");
-
-		Configuration configuration = new Configuration()
-				.addAnnotatedClass(User.class)
-				.addProperties(properties);
-
-		return configuration.buildSessionFactory();
-	}
 }
