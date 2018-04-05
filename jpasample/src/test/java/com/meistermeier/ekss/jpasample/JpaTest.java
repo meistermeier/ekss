@@ -34,28 +34,26 @@ public class JpaTest {
 	}
 
 	@Test
-	public void load() {
+	public void loadEntity() {
 
 		User loadedUser = entityManager.find(User.class, userId);
 
 		LOG.info("user found: {} ", loadedUser);
 
 	}
-
 	@Test
-	public void loadInDifferentSession() {
+	public void loadEntityWithGetReference() {
 
-		User loadedUser = entityManager.find(User.class, userId);
+		User loadedUser = entityManager.getReference(User.class, 3L);
 
 		LOG.info("user found: {} ", loadedUser);
+
 	}
-
 	@Test
-	public void updateAndLoadEntityInSession() {
+	public void updateEntity() {
 
-		user.setFirstName("Hans");
 		entityManager.getTransaction().begin();
-		entityManager.merge(user);
+		user.setFirstName("Hans");
 		entityManager.getTransaction().commit();
 
 		User loadedUser = entityManager.find(User.class, userId);
