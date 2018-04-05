@@ -2,9 +2,8 @@ package com.meistermeier.ekss.jpasample;
 
 import static com.meistermeier.ekss.jpasample.TestHelper.*;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import javax.persistence.EntityManager;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,92 +13,63 @@ import org.slf4j.LoggerFactory;
 public class JpaTest {
 	private static final Logger LOG = LoggerFactory.getLogger(JpaTest.class);
 
-	private SessionFactory sessionFactory;
+	private EntityManager entityManager = createEntityManager();
 	private Long userId;
 	private User user;
 
 	@Before
 	public void setup() {
-		this.sessionFactory = createSessionFactory();
-
 		user = new User("Max", "Mustermann", 22);
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		session.save(user);
-		transaction.commit();
-		session.close();
+
+		entityManager.getTransaction().begin();
+		entityManager.persist(user);
+		entityManager.getTransaction().commit();
 		userId = user.getId();
 
 	}
 
 	@After
 	public void tearDown() {
-		this.sessionFactory.close();
+		this.entityManager.close();
 	}
 
 	@Test
 	public void load() {
-		Session session = sessionFactory.openSession();
 
-		User loadedUser = session.load(User.class, userId);
+		User loadedUser = entityManager.find(User.class, userId);
 
 		LOG.info("user found: {} ", loadedUser);
 
-		session.close();
 	}
 
 	@Test
 	public void loadInDifferentSession() {
-		Session session = sessionFactory.openSession();
 
-		User loadedUser = session.load(User.class, userId);
+		User loadedUser = entityManager.find(User.class, userId);
 
 		LOG.info("user found: {} ", loadedUser);
-
-		session.close();
 	}
 
 	@Test
 	public void updateAndLoadEntityInSession() {
-		Session session = sessionFactory.openSession();
 
 		user.setFirstName("Hans");
+		entityManager.getTransaction().begin();
+		entityManager.merge(user);
+		entityManager.getTransaction().commit();
 
-		session.update(user);
-
-		User loadedUser = session.load(User.class, userId);
+		User loadedUser = entityManager.find(User.class, userId);
 		LOG.info("user found: {} ", loadedUser);
-		session.close();
-	}
-
-	@Test
-	public void updateAndLoadEntityInNewSession() {
-		Session session = sessionFactory.openSession();
-
-		user.setFirstName("Hans");
-
-		session.update(user);
-		session.close();
-		session = sessionFactory.openSession();
-
-		User loadedUser = session.load(User.class, userId);
-		LOG.info("user found: {} ", loadedUser);
-		session.close();
 	}
 
 	@Test
 	public void deleteEntity() {
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		session.delete(user);
-		session.flush();
-		transaction.commit();
-		session.close();
+		entityManager.getTransaction().begin();
+		entityManager.remove(user);
+		entityManager.getTransaction().commit();
 
-		session = sessionFactory.openSession();
-		User loadedUser = session.get(User.class, userId);
+		User loadedUser = entityManager.find(User.class, userId);
 		LOG.info("user found: {} ", loadedUser);
-		session.close();
 	}
 
 }
