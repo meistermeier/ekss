@@ -12,16 +12,15 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SqlSampleTest {
+public class SqlSelectSampleTest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SqlSampleTest.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SqlSelectSampleTest.class);
 
-	private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory = TestHelper.createSessionFactory();
 	private User firstUser;
 
 	@Before
 	public void setup() {
-		this.sessionFactory = TestHelper.createSessionFactory();
 		createUser();
 	}
 
