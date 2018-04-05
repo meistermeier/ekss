@@ -9,7 +9,8 @@ Begleitende Codebeispiele für die Vorlesung _Entwicklung komplexer Softwaresyst
 
 == Data Stores
 
-* https://github.com/meistermeier/ekss/blob/master/jpasample/src/test/java/com/meistermeier/ekss/jpasample/SqlSampleTest.java[SQL Beispiel im JPA Projekt]
+* https://github.com/meistermeier/ekss/blob/master/jpasample/src/test/java/com/meistermeier/ekss/jpasample/SqlSelectSampleTest.java[SQL `select` Beispiel im JPA Projekt]
+* https://github.com/meistermeier/ekss/blob/master/jpasample/src/test/java/com/meistermeier/ekss/jpasample/SqlEditSampleTest.java[SQL Datenmanipulation im JPA Projekt]
 * https://github.com/meistermeier/ekss/tree/master/mongodbsample[mongoDB Beispiel]
 * https://github.com/meistermeier/ekss/tree/master/neo4jsample[Neo4j Beispiel]
 
