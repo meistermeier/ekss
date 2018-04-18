@@ -83,6 +83,8 @@ public class MongoDbTest {
 	@Test
 	public void listAllDataInCollection() {
 		MongoDatabase db = mongo.getDatabase(DATABASE_NAME);
+
+		// mongodb shell: db.getCollection("mixedCollection")
 		MongoCollection<Document> collection = db.getCollection(MIXED_COLLECTION);
 
 		// mongodb shell: db.mixedcollection.find()
@@ -109,7 +111,7 @@ public class MongoDbTest {
 
 		// mongodb shell: db.mixedcollection.find({"anotherKey": { $gte: 10 } } )
 		for (Document document : collection.find(Filters.and(Filters.gte("anotherKey", 10), Filters.lt("anotherKey", 20)))) {
-			System.out.println("Found (gte/lt): " + document);
+			System.out.println("Found (gte): " + document);
 		}
 	}
 
@@ -119,7 +121,10 @@ public class MongoDbTest {
 		MongoCollection<Document> collection = db.getCollection(MIXED_COLLECTION);
 
 		Bson filter = new Document("myKey", "myValue");
-		Bson updateValue = Updates.combine(set("myKey", "new value"), set("name", "Max Mustermann"));
+		Bson updateValue = combine(
+				set("myKey", "new value"),
+				set("name", "Max Mustermann")
+		);
 
 		/* mongodb shell
 		db.mixedcollection.update(

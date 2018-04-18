@@ -28,7 +28,7 @@ public class Neo4jSample {
 		executeQuery("MATCH (u:User{name:'Max'}) WITH u CREATE (u)-[:LIKES]->(h:Hobby{type:'Coding'})");
 
 		// MATCH existing graph
-		executeQuery("MATCH (u:User{name:'Max'})-[r:LIKES]->(h:hobby{type:'Coding'}) return u,r,h");
+		executeQuery("MATCH (u:User{name:'Max'})-[r:LIKES]->(h:Hobby{type:'Coding'}) return u,r,h");
 
 		// Update name property with SET
 		executeQuery("MATCH (u:User{name:'Max'}) SET u.name='Hans' return u");

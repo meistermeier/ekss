@@ -1,4 +1,4 @@
 === Ausführen
 
-`./mvnw test` - Führt `JpaTest` und `SqlSampleTest` aus.
+`./mvnw test` - Führt `SqlEditSampleTest`, `SqlSelectSampleTest` und `JpaTest` aus.
 
