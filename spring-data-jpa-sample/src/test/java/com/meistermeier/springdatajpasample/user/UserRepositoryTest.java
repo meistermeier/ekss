@@ -25,6 +25,8 @@ public class UserRepositoryTest {
 	public void createTestUser() {
 		User user = new User("Max", "Mustermann", 32);
 		savedUser = userRepository.save(user);
+//		user = new User("Max", "Mustermann2", 32);
+//		savedUser = userRepository.save(user);
 	}
 
 	@After
@@ -32,10 +34,17 @@ public class UserRepositoryTest {
 		userRepository.deleteAll();
 	}
 
+
+	@Test
+	public void findByName() {
+//		System.out.println(userRepository.findByFirstName("Max", "Hans"));
+	}
+
 	@Test
 	public void findById() {
 		User user = userRepository.findById(savedUser.getId()).get();
 		System.out.println(user.getLastModified());
+		System.out.println(user.getAuthor());
 		assertThat(user.getFirstName(), equalTo("Max"));
 		assertThat(user.getLastName(), equalTo("Mustermann"));
 		assertThat(user.getAge(), equalTo(32));

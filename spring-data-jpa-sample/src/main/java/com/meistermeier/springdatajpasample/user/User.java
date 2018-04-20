@@ -2,12 +2,15 @@ package com.meistermeier.springdatajpasample.user;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -22,6 +25,14 @@ public class User {
 	private String firstName;
 
 	private String lastName;
+
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@CreatedBy
+	private Author author;
+
+	public Author getAuthor() {
+		return author;
+	}
 
 	@CreatedDate
 	private Date lastModified;
