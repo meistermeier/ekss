@@ -1,5 +1,8 @@
 package com.meistermeier.mymdb.movie;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +21,8 @@ public class MovieRepositoryTest {
 		Movie movie = new Movie();
 		movie.setTitle("Matrix");
 
-		movieRepository.save(movie);
+		Movie savedMovie = movieRepository.save(movie);
 
-		System.out.println(movieRepository.findAll());
+		assertThat(movieRepository.findAll().iterator().next().getTitle(), equalTo(savedMovie.getTitle()));
 	}
 }
