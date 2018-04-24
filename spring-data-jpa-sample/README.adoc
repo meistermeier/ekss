@@ -1,0 +1,4 @@
+=== Ausführen
+
+`./mvnw test` - Führt `UserRepositoryTest` aus.
+

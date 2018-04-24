@@ -2,10 +2,15 @@
 
 Begleitende Codebeispiele für die Vorlesung _Entwicklung komplexer Softwaresysteme_ an der Ostfalia SS 2018.
 
+== Resourcen
+
+* https://meier.cloud/ekss/ekss.html[Skript]
+* https://meier.cloud/ekss/ekss.pdf[Folien]
+
 == Dependency Injection
 
 * https://github.com/meistermeier/ekss/tree/master/springsample/[Dependency Injection mit Spring (im Spring Boot Beispiel)]
-* https://github.com/meistermeier/ekss/tree/master/javaeesample/[kleine Java EE Beispielanwendung mit CDI]
+* https://github.com/meistermeier/ekss/tree/master/javaeesample/[Java EE Beispielanwendung mit CDI]
 
 == Data Stores
 
@@ -17,8 +22,7 @@ Begleitende Codebeispiele für die Vorlesung _Entwicklung komplexer Softwaresyst
 == Persistence
 
 * https://github.com/meistermeier/ekss/tree/master/jpasample/[JPA]
-//* Spring Data JPA
-//* Spring Data Neo4j
+* https://github.com/meistermeier/ekss/tree/master/spring-data-jpa-sample/[Spring Data JPA]
 
 //== Web Services
 

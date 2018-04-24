@@ -1,0 +1,6 @@
+=== Ausführen
+
+Da es zur Zeit noch keine vollständige Anwendung ist:
+
+`./mvnw test` - Führt alle Tests aus.
+

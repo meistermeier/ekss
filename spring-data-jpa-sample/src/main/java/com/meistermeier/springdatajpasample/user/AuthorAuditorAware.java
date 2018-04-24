@@ -1,6 +1,5 @@
 package com.meistermeier.springdatajpasample.user;
 
-import java.applet.AudioClip;
 import java.util.Optional;
 
 import org.springframework.data.domain.AuditorAware;
