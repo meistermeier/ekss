@@ -4,3 +4,5 @@ Da es zur Zeit noch keine vollständige Anwendung ist:
 
 `./mvnw test` - Führt alle Tests aus.
 
+`./mvnw spring-boot:run` - Startet die Anwendung, die unter `http://localhost:8080/movies/createMovie` die Seite zum Anlegen eines Movies zeigt.
+
