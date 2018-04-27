@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,7 +25,7 @@ public class Movie {
 
 	private Date releaseDate;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Country country;
 
 	@Enumerated(EnumType.STRING)

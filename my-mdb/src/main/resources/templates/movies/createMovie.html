@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create Movie</title>
+</head>
+<body>
+<form action="" th:action="@{/movies/save}" th:object="${movieForm}" method="POST">
+    <label for="title" th:text="#{title}">Title</label>
+    <input id="title" type="text" th:field="*{title}"/>
+    <ul>
+        <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>
+    </ul>
+    <br/>
+    <label for="releaseDate" th:text="#{releaseDate}">Release Date</label>
+    <input id="releaseDate" type="date" th:field="*{releaseDate}"/>
+    <ul>
+        <li th:each="err : ${#fields.errors('releaseDate')}" th:text="${err}"></li>
+    </ul>
+    <br/>
+
+    <label for="email" th:text="#{email}">Email</label>
+    <input id="email" type="email" th:field="*{email}"/>
+    <br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
