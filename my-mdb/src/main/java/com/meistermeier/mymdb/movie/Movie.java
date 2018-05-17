@@ -50,6 +50,13 @@ public class Movie {
 	@ManyToMany
 	private Set<Tag> tags;
 
+	public Movie() {
+	}
+
+	public Movie(String title) {
+		this.title = title;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -72,6 +79,14 @@ public class Movie {
 
 	public void setCountry(Country country) {
 		this.country = country;
+	}
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 
 	public Double getRating() {
@@ -132,5 +147,9 @@ public class Movie {
 
 	@Override public String toString() {
 		return title;
+	}
+
+	public Long getId() {
+		return id;
 	}
 }

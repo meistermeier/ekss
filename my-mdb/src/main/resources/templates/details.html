@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+</head>
+<body>
+<div th:replace="~{parts/menue :: menue}"></div>
+<div>
+    <span th:text="#{film.titel}">TITEL</span>
+    <span th:text="${movie.title}">MOVIE TITEL</span>
+</div>
+<div>
+    <span th:text="#{film.erscheinungsdatum}">ERSCHEINUNGSDATUM</span>
+    <span th:text="${#dates.format(movie.releaseDate, 'dd/MMM/yyyy')}">MOVIE TITEL</span>
+</div>
+</body>
+</html>

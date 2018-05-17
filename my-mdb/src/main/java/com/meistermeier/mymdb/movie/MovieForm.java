@@ -1,6 +1,6 @@
 package com.meistermeier.mymdb.movie;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -11,17 +11,13 @@ import com.meistermeier.mymdb.validation.NotMatrix;
 
 public class MovieForm {
 
-	private Email email;
-
-
-	@NotEmpty
 	@NotMatrix
+	@NotEmpty
 	private String title;
 
 	@NotNull
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDate releaseDate = LocalDate.now();
-
+	private Date releaseDate = new Date();
 
 	public String getTitle() {
 		return title;
@@ -31,19 +27,12 @@ public class MovieForm {
 		this.title = title;
 	}
 
-	public LocalDate getReleaseDate() {
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(LocalDate releaseDate) {
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
-	public Email getEmail() {
-		return email;
-	}
-
-	public void setEmail(Email email) {
-		this.email = email;
-	}
 }

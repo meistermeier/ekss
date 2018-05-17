@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create Movie</title>
+</head>
+<body>
+<div th:replace="~{parts/menue :: menue}"></div>
+<form th:action="@{/movies/save}" th:object="${movieForm}" method="POST">
+    <label for="title" th:text="#{film.titel}">TITEL</label>
+    <input id="title" th:field="*{title}"/>
+    <label for="releaseDate" th:text="#{film.erscheinungsdatum}">ERSCHEINUNGSDATUM</label>
+    <input type="date" id="releaseDate" th:field="*{releaseDate}"/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Movie list</title>
+    <link type="text/css" rel="stylesheet"
+          href="../static/style.css" th:href="@{/style.css}"/>
+</head>
+<body>
+<div th:replace="~{parts/menue :: menue}"></div>
+<ul th:remove="all-but-first">
+    <li th:each="movie : ${movies}" th:object="${movie}">
+        <span>
+            <a th:text="${movie.title}" th:href="@{/movies/details(movieId=${movie.id})}">
+                Irgendein Film
+            </a>
+        </span>
+        <span th:text="${movie.genre}"></span>
+        <th:block th:switch="${movie.genre}">
+            <span th:case="HORROR">buh</span>
+            <span th:case="COMEDY">haha</span>
+            <span th:case="SCIFI">phew</span>
+            <span th:case="*">no genre</span>
+        </th:block>
+    </li>
+    <li>Film 1</li>
+    <li>Film 2</li>
+    <li>Film 3</li>
+    <li>Film 4</li>
+</ul>
+</body>
+</html>
