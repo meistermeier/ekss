@@ -1,4 +1,4 @@
-package com.meistermeier.mymdb.movie;
+package com.meistermeier.mymdb.country;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

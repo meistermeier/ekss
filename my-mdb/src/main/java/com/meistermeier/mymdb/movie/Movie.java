@@ -14,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.meistermeier.mymdb.country.Country;
+import com.meistermeier.mymdb.person.Person;
+
 @Entity
 public class Movie {
 

@@ -1,10 +1,12 @@
-package com.meistermeier.mymdb.movie;
+package com.meistermeier.mymdb.person;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.meistermeier.mymdb.movie.Movie;
 
 @Entity
 public class Award {

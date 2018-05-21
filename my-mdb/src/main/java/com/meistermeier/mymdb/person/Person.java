@@ -1,4 +1,4 @@
-package com.meistermeier.mymdb.movie;
+package com.meistermeier.mymdb.person;
 
 import java.util.Date;
 import java.util.Set;
@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.meistermeier.mymdb.country.Country;
 
 @Entity
 public class Person {

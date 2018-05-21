@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.meistermeier.mymdb.country.Country;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class MovieServiceTest {
