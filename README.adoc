@@ -4,7 +4,8 @@ Begleitende Codebeispiele für die Vorlesung _Entwicklung komplexer Softwaresyst
 
 == Resourcen
 
-* https://meier.cloud/ekss/ekss.html[Skript]
+* https://meier.cloud/ekss/ekss-skript.html[Skript (HTML)]
+* https://meier.cloud/ekss/ekss-skript.pdf[Skript (PDF)]
 * https://meier.cloud/ekss/ekss.pdf[Folien]
 
 == Dependency Injection

@@ -37,7 +37,7 @@ public class UserRepositoryTest {
 
 	@Test
 	public void findByName() {
-//		System.out.println(userRepository.findByFirstName("Max", "Hans"));
+		System.out.println(userRepository.findByFirstName("Max"));
 	}
 
 	@Test

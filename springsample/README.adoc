@@ -1,6 +1,12 @@
 === Starten
 
+Klasse `com.meistermeier.ekss.spring.InjectionSample` ausführen, um Setter vs. Constructor Injection auszuprobieren.
+Klasse `com.meistermeier.ekss.spring.ScopeSamples` ausführen, um Scopes auszuprobieren.
+
 `./mvnw spring-boot:run` (Mac/Linux)
 
 `mvn.cmd spring-boot:run` (Windows)
+
+`./mvnw test`, um die Verwendung von Profiles auszuprobieren.
+
 

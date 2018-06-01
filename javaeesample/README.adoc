@@ -2,3 +2,5 @@
 
 `./mvnw clean package && java -jar target/javaee-sample-1.0-SNAPSHOT-swarm.jar` -
 Erstellt eine ausführbare Webanwendung und startet diese.
+
+Die Anwendung ist nach dem Start unter `http://localhost:8080/user` erreichbar.

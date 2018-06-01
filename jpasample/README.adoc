@@ -1,4 +1,3 @@
 === Ausführen
 
 `./mvnw test` - Führt `SqlEditSampleTest`, `SqlSelectSampleTest` und `JpaTest` aus.
-

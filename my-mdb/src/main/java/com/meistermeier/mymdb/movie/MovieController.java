@@ -1,6 +1,5 @@
 package com.meistermeier.mymdb.movie;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -67,7 +65,7 @@ public class MovieController {
 
 	@PostMapping("/save")
 	public String save(@Valid MovieForm form, BindingResult bindingResult) throws Exception {
-		String rv = "movies/createMovie";
+		String rv = "movies/create";
 		if (!bindingResult.hasErrors()) {
 
 			Movie movie = new Movie(form.getTitle());

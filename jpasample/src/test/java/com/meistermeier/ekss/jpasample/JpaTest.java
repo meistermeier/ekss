@@ -41,7 +41,7 @@ public class JpaTest {
 		LOG.info("user found: {} ", loadedUser);
 
 	}
-	@Test
+//	@Test
 	public void loadEntityWithGetReference() {
 
 		User loadedUser = entityManager.getReference(User.class, 3L);

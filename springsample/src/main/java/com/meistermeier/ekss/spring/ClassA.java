@@ -3,15 +3,15 @@ package com.meistermeier.ekss.spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class ClassA {
 
-	private final ClassB classB;
+	private ClassB classB;
 
 	public final String name = "ClassA";
 
 	@Autowired
-	public ClassA(ClassB classB) {
+	public void setClassB(ClassB classB) {
 		this.classB = classB;
 	}
 
